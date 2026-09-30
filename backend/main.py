@@ -134,6 +134,12 @@ class EditDistanceRequest(BaseModel):
 # 1. LIVE MATCH ENGINE & DEMO ENDPOINTS
 # =================================================================
 
+@app.get("/api")
+async def api_health():
+    """Health check endpoint confirming FastAPI backend service is running."""
+    return {"status": "ok", "service": "ResumeIQ API", "version": "1.0.0"}
+
+
 @app.post("/api/analyze")
 async def analyze_match(payload: AnalyzeRequest):
     """Executes the full 7-stage live match pipeline."""
