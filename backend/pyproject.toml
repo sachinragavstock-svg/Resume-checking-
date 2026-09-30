@@ -1,0 +1,15 @@
+[project]
+name = "resumeiq-backend"
+version = "1.0.0"
+description = "ResumeIQ DSA-Driven Match Engine & Algorithm Lab Backend"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "pydantic",
+    "python-multipart",
+    "pdfplumber",
+    "pypdfium2"
+]
+
+[tool.vercel]
+entrypoint = "main:app"

@@ -8,6 +8,17 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional, List, Dict, Any
 import json
+import sys
+from pathlib import Path
+
+# Ensure project root and backend dir are in sys.path for robust module resolution
+_backend_dir = Path(__file__).resolve().parent
+_project_root = _backend_dir.parent
+if str(_project_root) not in sys.path:
+    sys.path.insert(0, str(_project_root))
+if str(_backend_dir) not in sys.path:
+    sys.path.insert(0, str(_backend_dir))
+
 import uvicorn
 
 from backend.pipeline.match_engine import run_full_pipeline
